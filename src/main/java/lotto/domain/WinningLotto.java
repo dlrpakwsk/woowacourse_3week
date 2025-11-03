@@ -20,6 +20,7 @@ public class WinningLotto {
         this.bonusNumber = bonusNumber;
     }
 
+    // 번호 유효성 검사
     private void validate(List<Integer> winningNumbers, int bonusNumber) {
         if (winningNumbers.size() != LOTTO_SIZE) {
             throw new IllegalArgumentException("[ERROR] 당첨 번호는 6개여야 합니다.");
@@ -38,6 +39,7 @@ public class WinningLotto {
         }
     }
 
+    // 중복 확인
     private boolean hasDuplicate(List<Integer> numbers) {
         Set<Integer> unique = new HashSet<>(numbers);
         return unique.size() != numbers.size();

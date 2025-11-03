@@ -14,6 +14,7 @@ public class Result {
         this.profitRate = calculateProfitRate(purchaseAmount);
     }
 
+    // 당첨 결과 계산
     private void calculateResults(List<Lotto> lottos, WinningLotto winningLotto) {
         for (Lotto lotto : lottos) {
             int matchCount = countMatches(lotto, winningLotto.getWinningNumbers());
@@ -23,12 +24,14 @@ public class Result {
         }
     }
 
+    // 맞은 번호 개수 계산
     private int countMatches(Lotto lotto, List<Integer> winningNumbers) {
         return (int) lotto.getNumbers().stream()
                 .filter(winningNumbers::contains)
                 .count();
     }
 
+    // 수익률 계산
     private double calculateProfitRate(int purchaseAmount) {
         int totalPrize = results.entrySet().stream()
                 .mapToInt(entry -> entry.getKey().getPrize() * entry.getValue())

@@ -24,6 +24,7 @@ public enum  Rank {
         return prize;
     }
 
+    // 맞은 개수에 따라 등수 반환
     public static Rank valueOf(int matchCount, boolean bonusMatch) {
         if (matchCount < 3) {
             return NONE;

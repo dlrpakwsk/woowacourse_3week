@@ -13,6 +13,7 @@ public class Lotto {
 
     public Lotto(List<Integer> numbers) {
         validate(numbers);
+        // 항상 오름차순 정렬로 저장
         this.numbers = numbers.stream()
                 .sorted()
                 .collect(Collectors.toList());
@@ -29,10 +30,14 @@ public class Lotto {
             throw new IllegalArgumentException("[ERROR] 로또 번호는 1부터 45 사이여야 합니다.");
         }
     }
+
+    // 중복 확인
     private boolean hasDuplicate(List<Integer> numbers) {
         Set<Integer> uniqueNumbers = new HashSet<>(numbers);
         return uniqueNumbers.size() != numbers.size();
     }
+
+    //로또 번호 목록을 외부에서 조회할 수 있도록 반환
     public List<Integer> getNumbers() {
         return numbers;
     }

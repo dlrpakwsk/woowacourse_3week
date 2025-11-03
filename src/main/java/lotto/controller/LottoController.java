@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.Map;
 
 public class LottoController {
+
     public void run() {
         int purchaseAmount = readPurchaseAmount();
         LottoMachine machine = new LottoMachine();
@@ -26,6 +27,7 @@ public class LottoController {
         View.printResult(formatResults(result.getResults()), result.getProfitRate());
     }
 
+    // 구입 금액 입력 처리
     private int readPurchaseAmount() {
         try {
             return View.readPurchaseAmount();
@@ -35,6 +37,7 @@ public class LottoController {
         }
     }
 
+    // 당첨 번호 입력 처리
     private WinningLotto readWinningLotto() {
         try {
             String winningInput = View.readWinningNumbers();
@@ -50,7 +53,8 @@ public class LottoController {
             return readWinningLotto();
         }
     }
-
+    
+    // 출력 형식 맞추기
     private List<String> formatResults(Map<Rank, Integer> results) {
         List<Rank> orderedRanks = List.of(Rank.FIFTH, Rank.FOURTH, Rank.THIRD, Rank.SECOND, Rank.FIRST);
         List<String> lines = new ArrayList<>();
