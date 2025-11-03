@@ -3,6 +3,7 @@ package lotto;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 public class Lotto {
     private static final int LOTTO_SIZE = 6;
@@ -14,7 +15,7 @@ public class Lotto {
         validate(numbers);
         this.numbers = numbers.stream()
                 .sorted()
-                .toList();
+                .collect(Collectors.toList());
     }
 
     private void validate(List<Integer> numbers) {
